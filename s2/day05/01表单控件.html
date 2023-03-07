@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="get">
+			文本框：<input type="text" value="默认值"><br>
+			密码框：<input type="password" /><br>
+			单选框:<input type="radio" value="男" name="gender" />男
+			<input type="radio" value="女" name="gender" checked="checked"/>女 <br>
+			多选框：<input type="checkbox" name="food" value="1" checked="xxx"/>1
+					<input type="checkbox" name="food" value="2"/>2
+					<input type="checkbox" name="food" value="3"/>3
+					<input type="checkbox" name="food" value="4"/>4
+			<hr>
+			<input type="submit" value="按钮上的文字（默认是提交）"> <br>
+			<input type="reset" value="按钮上的文字（默认是重置）"> <br>
+			<input type="button" value="按钮上的文字（默认没有文字）"> <br>
+			<input type="image" src="../day04/img/baidu.png" width="200px"> <br>
+			
+			<hr>
+			这是隐藏域：<input type="hidden" name="参数名" value="参数值"><br>
+			文件上传： <input type="file" name="" id="">
+			
+			<hr>
+			
+			<select multiple="multiple" size="5">
+				<option value="1">选项1</option>
+				<option value="2" selected="selected">选项2</option>
+				<option value="3">选项3</option>
+				<option value="4">选项4</option>
+				<option value="5">选项5</option>
+				<option value="6">选项6</option>
+			</select>
+			<hr>
+			<textarea cols="30" rows="10" style="resize: none;">默认文本</textarea>
+			<button>按钮</button>
+		</form>
+		
+		<hr>
+		<form action="">
+			<fieldset id="">
+				<legend>用户登录</legend>
+				文本框：<input type="text" value="默认值"><br>
+				<label for="pwd">密码框：</label>
+				<input type="password" id="pwd"/><br>
+				<input type="submit"> <br>				
+			</fieldset>
+		</form>
+	</body>
+</html>
