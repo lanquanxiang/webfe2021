@@ -39,3 +39,45 @@
 5.  存在且值空格分割匹配    ~=
 6.  存在且值连接符分割匹配  |=
 7.  存在且值包含匹配    *=
+# 4. 链接伪类(超链接)
+> 爱(love)恨(hate)原则
+> a:link (链接之前的样式)
+> a:visited （点击之后的样式）
+> a:hover (鼠标悬停的样式)（掌握）
+> a:active （点击的一瞬间（激活））
+# 5. 伪元素选择器(6种)
+1.  首字母    ::first-letter
+2.  首行        ::first-line
+3.  前面追加  ::before（重要）
+4.  后面追加  ::after（重要）
+```
+			div::before{
+				content: url(img/excel.png); /*追加图标*/
+				content: "xxxx"; /*追加文字*/
+			}
+```
+5.  被选中的文字  ::selection
+6.  提示文字  ::placeholder
+> 当选择器权重一样时，越靠近元素的优先级越高。
+# 6. 状态伪类选择器(7种)
+1.  :focus 获得焦点
+2.  :not(selector)
+3.  :is(selector)
+4.  :checked 被选中
+5.  :disabled 不可用
+6.  :read-only 只读
+7.  :empty 标签内容为空
+# 7. 结构伪类选择器(10种)
+1.  E:first-child
+2.  E:last-child
+3.  E:only-child
+4.  E:nth-child(n)
+> 2n,odd,even
+5.  E:nth-last-child(n)
+> 选中的是E，且符合E是其父元素的第几个儿子
+6.  E:first-of-type
+7.  E:last-of-type
+8. E:only-of-type
+9. E:nth-of-type(n)
+10. E:nth-last-of-type(n)
+# 优先级【重要】
