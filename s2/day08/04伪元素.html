@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		a::after{
+			content: "-百度文库";
+		}
+		a[href$="doc"]::before{
+			content: url(img/word.png);
+		}
+		a[href$="pdf"]::before{
+			content: url(img/pdf.png);
+		}
+		a[href$="xls"]::before{
+			content: url(img/excel.png);
+		}
+		a[href$="ppt"]::before{
+			content: url(img/ppt.png);
+		}
+		</style>
+	</head>
+	<body>
+		<div><a href="1.doc">文件资料</a></div>
+		<div><a href="2.ppt">文件资料</a></div>
+		<div><a href="3.doc">文件资料</a></div>
+		<div><a href="4.pdf">文件资料</a></div>
+		<div><a href="5.xls">文件资料</a></div>
+		<div><a href="6.doc">文件资料</a></div>
+		<div><a href="7.ppt">文件资料</a></div>
+		<div><a href="8.ppt">文件资料</a></div>
+		<div><a href="9.doc">文件资料</a></div>
+		<div><a href="10.xls">文件资料</a></div>
+	</body>
+</html>
