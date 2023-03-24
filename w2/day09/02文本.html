@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* div:nth-child(n+7) */
+			hr~div{
+				width: 300px;
+				border: #0000FF 1px solid;
+				
+				white-space: nowrap;/*不允许换行*/
+				overflow: hidden; /*超出盒子的部分不可见*/
+				text-overflow: ellipsis; /*文本溢出的部分用...代替*/
+			}
+		</style>
+	</head>
+	<body>
+		<div style="text-indent: 2em;">我是张三.</div>
+		<div style="text-align: center;width: 200px;">我是张三.</div>
+		<div style="text-decoration: underline;">my name is zhangsan.</div>
+		<div style="text-decoration: line-through;">my name is zhangsan.</div>
+		<div style="text-transform: capitalize;">my name is zhangsan.</div>
+		<div style="text-transform: uppercase;">my name is zhangsan.</div>
+		<hr>
+		<div>新闻标题：今天是个好日子，心想的事儿都能成</div>
+		<div>新闻标题：今天是个好日子，心想的事儿都能成</div>
+		<div>新闻标题：今天是个好日子，心想的事儿都能成</div>
+		
+		<span style="text-shadow: 10px 20px 10px #0000FF;">我是有影子的文本</span>
+	</body>
+</html>

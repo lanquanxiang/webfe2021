@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div:first-child{
+				text-indent: 2em; /*文本缩进2字符大小*/
+			}
+			div:nth-child(2){
+				text-align: center;
+			}
+			div:nth-child(3){
+				text-decoration: line-through; /*underline、overline、none */
+			}
+			div:nth-child(4){
+				text-transform: capitalize; /*首字母大写*/
+				/* text-transform: uppercase; /*全部大写*/
+				/* text-transform: lowercase;  /* 全部小写*/
+			}
+			div:nth-child(5){
+				width: 200px;
+				border: #0000FF 1px solid;
+				word-break: break-all; /*强制单词中间被截断*/
+			}
+			div:nth-child(6){
+				width: 200px;
+				border: #0000FF 1px solid;
+				
+				white-space: nowrap; /*只允许在一行显示*/
+				overflow: hidden; /*超出盒子的部分进行隐藏*/
+				text-overflow: ellipsis; /*用...代替裁剪的部分 clip直接裁剪*/
+				
+				text-shadow: 5px 5px 1px #0000FF; 
+							/*投影的坐标（x,y） 模糊半径 投影的颜色*/
+			}
+		</style>
+	</head>
+	<body>
+		<div>测试文字测试文字</div>
+		<div>测试文字测试文字</div>
+		<div>测试文字测试文字</div>
+		<div>my name is zhangsan</div>
+		<div>my name is zhangsanmyaaaaaa name is zhangsanmy name is zhangsan</div>
+		<div>测试文字测试文字测试文字测试文字</div>
+	</body>
+</html>

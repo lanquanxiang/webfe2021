@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			hr~div{
+				width: 300px;
+				border: #0000FF 1px solid;
+			}
+			hr+div~div{
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;  /*clip直接裁剪*/
+			}
+		</style>
+	</head>
+	<body>
+		<div style="text-indent: 2em;">这是文本样式这是文本样式这是文本样式这是文本样式这是文本样式这是文本样式这是文本样式这是文本样式</div>
+		<div style="text-align: center;">这是文本样式</div>
+		<div style="text-decoration: underline;">这是文本样式</div>
+		<div style="text-decoration: line-through;">这是文本样式</div>
+		<div style="text-transform: capitalize;">my name is zhangsan 这是文本样式</div>
+		<div style="text-transform: uppercase;">my name is zhangsan  这是文本样式</div>
+		<div style="text-shadow: 10px 10px 0px blue;">这是文本样式</div>
+		<hr>
+		<div style="word-break: break-all;">这是div里面的文字这是div里面的文字 aaaaaaaaaaaaaaaaaaaaaa</div>
+		<div>这是div里面的文字这是div里面的文字这是div里面的文字</div>
+		<div>这是div里面的文字这是div里面的文字这是div里面的文字</div>
+		<div>这是div里面的文字这是div里面的文字这是div里面的文字</div>
+	</body>
+</html>
