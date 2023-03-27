@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function fun(n){
+				document.write("<table style='border-collapse: collapse;'>");
+				for(var i=1;i<=n;i++){
+					document.write("<tr>");
+					for(var j=1; j<=i;j++){
+					document.write("<td style='border: #000000 1px solid;background-color: #FF0000;'>");
+					document.write(i+"*"+j+"="+i*j);
+					document.write("</td>");
+					}
+					document.write("</tr>");
+				}
+				document.write("</table>");
+			}
+		</script>
+	</head>
+	<body>
+		<a href="javascript:fun(5)">显示乘法表</a>
+	</body>
+</html>

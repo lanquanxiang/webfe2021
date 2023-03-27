@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			console.log("内部脚本的输出");
+			/**
+			 * 文档注释
+			 */
+			/*
+				多行注释
+			*/
+		</script>
+		<script src="js/my.js" type="text/javascript">
+			//不允许在外部链接的文本中写代码
+		</script>
+		
+	</head>
+	<body>
+		<h1 onclick="javascript:alert('你点击了标题')">标题</h1>
+		<a href="javascript:alert('你点击了超链接')">超链接</a>
+		<script type="text/javascript">
+			document.write("<h1'>一级标题</h1>")
+			document.write("<style>h1{color: red;}</style>")
+		</script>
+	</body>
+</html>
