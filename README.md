@@ -5,3 +5,6 @@
 
 #### 开发软件
 HBuilderX
+
+#### 课程交流群
+<img src="qq.png"/>
