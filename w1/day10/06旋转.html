@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body>div{
+				width: 300px;
+				height: 300px;
+				background-color: black
+			}
+			div>div{
+				width: 100px;
+				height: 100px;
+				border: 1px red solid;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				
+				animation-name: r;
+				animation-duration: 4s;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+				opacity: 0;
+			}
+			
+			@-webkit-keyframes r{
+				0%{
+					opacity: 0;
+					transform: rotate(0deg);
+				}
+				50%{
+					opacity: 1;
+					transform: rotate(180deg);
+				}
+				100%{
+					opacity: 0;
+					transform: rotate(360deg);
+				}
+			}
+			div>div:nth-child(2){
+				animation-delay: 0.2s;
+			}
+			div>div:nth-child(3){
+				animation-delay: 0.4s;
+			}
+			div>div:nth-child(4){
+				animation-delay: 0.6s;
+			}
+			div>div:nth-child(5){
+				animation-delay: 0.8s;
+			}
+			div>div:nth-child(6){
+				animation-delay: 1.0s;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</body>
+</html>

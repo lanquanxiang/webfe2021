@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			b = 1;
+			(function x() {
+				console.log(a);
+				console.log(b);
+				var a = 1;
+			})();
+			console.log(b);
+		</script>
+		<script type="text/javascript">
+			var a = 1;
+			console.log(a); //NO.1	
+			var fun = function() {
+				console.log(a); //NO.2
+				var a = 2;
+				console.log(a); //NO.3
+			}();
+			console.log(a); //NO.4
+			console.log(b); //NO.5			
+		</script>
+	</body>
+</html>
