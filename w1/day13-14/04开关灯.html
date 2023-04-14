@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var flag=false;
+			function theshy(){
+				var img=document.getElementById("light")
+				var text=document.getElementById("text")
+				if(flag==false){
+					img.setAttribute("src","img/on.png")
+					text.innerHTML="灯亮了!"
+					flag=true
+					text.setAttribute("style","color:red;")
+				}
+				else{
+					img.setAttribute("src","img/off.png")
+					text.innerHTML="灯灭了!"
+					flag=false
+					text.setAttribute("style","color:black;")
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div onclick="theshy()" style="text-align: center;">
+			<img src="img/off.png" id="light" width="200px">
+			<h1 id="text">灯灭了！</h1>
+		</div>
+	</body>
+</html>

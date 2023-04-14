@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var huff=false;
+			function fun()
+			{
+				 var img=document.getElementById("light");
+				 var h1=document.getElementById("text");
+				 if(huff==false){
+				 	 img.setAttribute("src","img/on.png");
+				 	
+					 h1.innerHTML="灯亮了！";
+				 	 h1.setAttribute("style","color: #FF0000;")
+				 	 huff=true;
+				 }
+				else{
+					img.setAttribute("src","img/off.png");
+					h1.innerHTML="灯灭了！";
+					h1.setAttribute("style","color:black;")
+					huff=false;
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div onclick="fun()">
+			<img src="img/off.png" width="200px" id="light">
+			<h1 id="text">灯灭了！</h1>
+		</div>
+	</body>
+</html>

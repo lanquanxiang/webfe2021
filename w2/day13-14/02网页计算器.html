@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function add(){
+				var num1=document.getElementById("input1").value;
+				var num2=document.getElementById("input2").value;
+				if(isNaN(num1) || isNaN(num2) || num1=="" || num2==""){
+					alert("数据不合法");
+					return;
+				}
+				var res=(num1-0)+(num2-0);
+				document.getElementById("input3").value=res;
+			}
+			
+			function sub(){
+				var num1=document.getElementById("input1").value;
+				var num2=document.getElementById("input2").value;
+				var res=(num1-0)-(num2-0);
+				document.getElementById("input3").value=res;
+			}
+			
+			function mul(){
+				var num1=document.getElementById("input1").value;
+				var num2=document.getElementById("input2").value;
+				var res=(num1-0)*(num2-0);
+				document.getElementById("input3").value=res;
+			}
+			
+			function div(){
+				var num1=document.getElementById("input1").value;
+				var num2=document.getElementById("input2").value;
+				var res=(num1-0)/(num2-0);
+				document.getElementById("input3").value=res;
+			}
+		</script>
+	</head>
+	<body>
+		第一个数 <input type="text" id="input1"> <br>
+		第二个数 <input type="text" id="input2"> <br>
+		<button onclick="add()">+</button>
+		<button onclick="sub()" >-</button>
+		<button onclick="mul()">*</button>
+		<button onclick="div()">/</button>
+		<br>
+		计算结果 <input type="text" id="input3"> <br>
+	</body>
+</html>

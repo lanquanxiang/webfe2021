@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn1">1</button>
+		<button class="btn2">2</button>
+		<button name="btn3">3</button>
+		<button>4</button>
+		<button>5</button>
+		<script type="text/javascript">
+			var btn1 = document.getElementById("btn1");
+			console.log(btn1.innerHTML);
+			btn1.innerHTML = "<b>111</b>";
+			
+			var btn4 = document.querySelector(".btn2+button+button");
+			console.log(btn4);
+			
+			var btn5 = document.getElementsByTagName("button")[4];
+			console.log(btn5);
+		</script>
+		<input type="text" id="text" value="123">
+		<script>
+			console.log(document.getElementById("text").value)
+		</script>
+	</body>
+</html>

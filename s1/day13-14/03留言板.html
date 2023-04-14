@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function fun(){
+				var name=document.getElementById("name1").value;
+				var liuyan=document.getElementById("liuyan").value;
+				var msg= name + "说：" +liuyan;
+				msgs.unshift(msg);
+				if(msgs.length>10){
+					msgs.pop();
+				}
+				document.getElementById("msgs").innerHTML=msgs.join("\n");
+			}
+			var msgs=[];
+			
+		</script>
+	</head>
+	<body>
+		姓名：<input type="text"  id="name1"/><br>
+		留言：<textarea id="liuyan" rows="3" cols="30"
+		 style="resize: none;vertical-align: top;"></textarea><br>
+		<button type="button" onclick="fun()">留言</button>
+		<hr >
+		<textarea id="msgs" rows="10" cols="50" disabled="disabled" style="resize: none;"></textarea>
+	</body>
+</html>

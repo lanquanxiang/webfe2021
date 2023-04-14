@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function fun1(){
+				var username=document.getElementById("name");
+				var text1=document.getElementById("msg");
+				var text2=document.getElementById("msgs");
+				username.value="";
+				text1.value="";
+				text2.innerHTML="";
+			}
+			var msgs=[];
+			function fun2(){
+				var username=document.getElementById("name");
+				var text1=document.getElementById("msg");
+				var text2=document.getElementById("msgs");
+				var msg=username.value+"说："+text1.value;
+				msgs.unshift(msg);
+				if(msgs.length>10){
+					msgs.pop();
+				}
+				text2.innerHTML=msgs.join("\n");
+			}
+		</script>
+	</head>
+	<body>
+		姓名：<input type="text"  id="name"  /><br>
+		留言：<textarea rows="3" cols="30" 
+		style="resize: none;vertical-align: top;" id="msg"></textarea>
+		<br>
+		<button onclick="fun1()">重置</button>
+		<button onclick="fun2()">留言</button>
+		<hr >
+		<textarea rows="10" cols="50" disabled style="resize: none;" id="msgs"></textarea>
+	</body>
+</html>

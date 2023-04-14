@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		姓名：<input type = "text" id = "name"/><br>
+		留言：<textarea rows="3" cols="30" style="resize: none;vertical-align: top;"></textarea><br>
+		<button onclick="fun1()">重置</button>
+		<button onclick="fun2()">留言</button><br>
+		<hr>
+		<textarea rows="10" cols="50" disabled="disabled" style="resize: none;"></textarea>
+		<script type="text/javascript">
+			function fun2(){
+				var name = document.getElementById('name').value;
+				var word = document.getElementsByTagName('textarea')[0].value;
+				var words = document.getElementsByTagName('textarea')[1] ;
+				var message = "["+name+"]说："+word;
+				messages.unshift(message);
+				if(messages.length>10){
+					messages.pop();					
+				}
+				words.value=messages.join("\n");
+			}
+			
+			var messages=[];
+			function fun1(){
+				 document.getElementById('name').value='';
+				 document.getElementsByTagName('textarea')[0].value='';
+				 document.getElementsByTagName('textarea')[1].value='' ;
+				 messages=[];
+			}
+		</script>
+		
+	</body>
+</html>

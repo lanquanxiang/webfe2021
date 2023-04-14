@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function fun() {
+				var num = document.getElementById("money").value;
+				if (isNaN(num) || num == "") {
+					alert("数字不合法");
+					return;
+				}
+				var index = num.indexOf(".");
+				if (index == -1) {
+					num = "00000" + num + ".00";
+				} else {
+					num = "00000" + num + "00";
+				}
+				index = num.indexOf(".");
+				var part1 = num.substring(index - 5, index);
+				var part2 = num.substring(index + 1, index + 3);
+				var a = (part1 + part2).split("");
+				console.log(a);
+				var c = "零壹贰叁肆伍陆柒捌玖".split("");
+				var d = "萬仟佰拾元角分".split("");
+				console.log(c);
+				var res = ""
+				for (var i = 0; i < a.length; i++) {
+					res = res + c[a[i]] + d[i]
+
+				}
+				document.getElementById("res").innerHTML = res;
+			}
+		</script>
+	</head>
+	<body>
+		请输入金额:<input type="text" id="money" />
+		<button type="button" onclick="fun()">转换</button><br>
+		转换结果:<span id="res">
+
+		</span>
+	</body>
+</html>
