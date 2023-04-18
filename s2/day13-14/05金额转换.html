@@ -6,17 +6,42 @@
 		<script type="text/javascript">
 			function fun(){
 				var number=document.getElementById("num").value;
-				if(number==""||isNaN(number)){
-					alert("非法数字")
+				// if(number==""||isNaN(number)){
+				// 	alert("非法数字")
+				// 	return;
+				// }
+				/**
+				 * 使用正则表达式验证金额
+				 */
+				var reg=/^(([1-9]\d{0,14})|0)(\.\d{1,2})?$/;
+				if(!reg.test(number)){
+					alert("输入金额不正确");
 					return;
 				}
 				var index=number.indexOf(".");
 				if(index==-1){
-					number="0"+number+".00"
+					number=number+".00"
 				}else{
-					number="0"+number+"00"
+					number=number+"0"
 				}
-				document.getElementById("res").innerHTML = number;
+				/**
+				 * 1. 提取整数部分
+				 * 2. 提取小数部分（只能保留小数点后2位）
+				 * 3. 去掉小数点
+				 * 4. 从末尾开始 分、角、元、十....
+				 */
+				index=number.indexOf(".");
+				var part1=number.substring(0,index);
+				var part2=number.substring(index+1,index+3);
+				var money=(part1+part2).split("");
+				var mon1="零壹贰叁肆伍陆柒捌玖".split("");
+				var mon2="仟佰拾萬仟佰拾亿仟佰拾萬仟佰拾元角分"
+				var j = mon2.length-1;
+				var res = "";//大写的结果
+				for(var i=money.length-1;i>=0;i--,j--){
+					res = mon1[money[i]]+ "<span style='color:blue'>"+ mon2[j]+"</span>" + res;
+				}
+				document.getElementById("res").innerHTML = res;
 			}
 		</script>
 	</head>
