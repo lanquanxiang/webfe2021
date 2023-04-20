@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+		var caps="零壹贰叁肆伍陆柒捌玖".split("");
+		var units="仟佰拾萬仟佰拾億仟佰拾萬仟佰拾元角分".split("");
+			function fun(){
+				var num = document.getElementById("num").value;
+				var ree = /^(([1-9]\d{0,14})|0)(\.\d{1,2})?$/;
+				if(!ree.test(num)){
+					alert("格式不正确");
+					return;
+				}
+				var index=num.indexOf(".");
+				if(index==-1)
+				{
+					num=num+".00";
+					
+				}
+				else
+				{
+					num=num+"0";
+				}
+				index=num.indexOf(".");
+				var part1=num.substring(0,index);
+				var part2=num.substr(index+1,2);
+				var money=(part1+part2).split("");
+				var res="";
+				for(var i=money.length-1,j=units.length-1;i>=0;i--,j--){
+					res=caps[money[i]]+units[j]+res;
+					
+				}
+				document.getElementById("res").innerHTML=res;
+				
+			}
+		</script>
+	</head>
+	<body>
+		输入数字：<input type="text" id="num" />
+		<button type="button" onclick="fun()">转换</button><br>
+		大写金额:<div id="res"></div>
+	</body>
+</html>
