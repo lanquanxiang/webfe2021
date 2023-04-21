@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function format(num){
+				if(num<10){
+					num="0"+num;
+				}
+				return num;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="text"></div>
+		<script type="text/javascript">
+		var weeks=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"]
+			function display(){
+				var date1=new Date();
+				var year=date1.getFullYear();
+				var month=date1.getMonth()+1;
+				var day=date1.getDate();
+				var hour=date1.getHours();
+				var min=date1.getMinutes();
+				var sec=date1.getSeconds();
+				var week=weeks[date1.getDay()];
+				var text=year+"-"+format(month)+"-"+format(day)+" "+format(hour)+":"+format(min)+":"+format(sec)+week;
+				document.getElementById("text").innerHTML=text;
+			}
+			setInterval(display,1000);
+			
+		</script>
+	</body>
+</html>
