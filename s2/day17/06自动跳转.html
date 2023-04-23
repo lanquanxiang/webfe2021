@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			h1{
+				display: inline-block;
+			}
+			h1+h1{
+				color: blue;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		你已经登录成功，<h1>500</h1>秒之后自动跳转，
+		如果没有跳转请点击<h1 onclick="fun2()">这里</h1>。
+		<script type="text/javascript">
+			var url="https://www.pzhu.cn";
+			setInterval(fun,1000);
+			function fun(){
+				var h1 = document.querySelector("h1");
+				if(h1.innerHTML=="1"){
+					window.location.href  =url;
+				}else{
+					h1.innerHTML = h1.innerHTML-1;
+				}
+			}
+			function fun2(){
+				window.location.href  =url;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="fun1()">开始</button>
+		<button onclick="fun2()">停止</button>
+		<div id="con"></div>
+		<script type="text/javascript">
+			var fun1 = function(){
+				T =  setInterval(function(){
+					document.getElementById("con").innerHTML+="哈";
+				},10);
+			}
+			var fun2 = function(){
+				clearInterval(T);
+			}
+		</script>
+	</body>
+</html>

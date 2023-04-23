@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button type="button">离家出走的按钮</button>
+		<button>按钮1</button>
+		<button>按钮2</button>
+		<button>按钮3</button>
+		<button>按钮4</button>
+		<button>按钮5</button>
+		<button>按钮6</button>
+		<button>按钮7</button>
+		<button>按钮8</button>
+		<button>按钮9</button>
+		<button>按钮10</button>
+		<script type="text/javascript">
+			var btns = document.getElementsByTagName("button");
+			for (let i = 0; i < btns.length; i++) {
+				btns[i].onclick = function(){
+					console.log("按钮"+(i+1));
+				}
+			}
+		</script>
+	</body>
+</html>

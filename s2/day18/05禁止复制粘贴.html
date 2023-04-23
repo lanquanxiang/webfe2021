@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body oncopy="fun1()">
+		答案： <input type="text" onpaste="fun2()"> <br>
+		参考答案：张三
+		<script type="text/javascript">
+			function fun1(){
+				alert("此网页禁止复制");
+				event.preventDefault();
+			}
+			function fun2(){
+				alert("不允许粘贴答案，只能手打");
+				event.preventDefault();
+			}
+		</script>
+	</body>
+</html>
