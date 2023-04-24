@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button onclick="fun1()">添加5个文本</button>
+		<button onclick="fun2()">添加5个图片</button>
+		<div id="con"></div>
+		
+		<script type="text/javascript">
+			var fun1 = function(){
+				var df  = document.createDocumentFragment();
+				for (let i = 0; i < 5; i++) {
+					var t = document.createElement("div");
+					t.innerHTML="文字";
+					t.setAttribute("style","color: red;")
+					df.appendChild(t);
+				}
+				document.getElementById("con").appendChild(df);
+			}
+			var fun2 = function(){
+				var df  = document.createDocumentFragment();
+				for (let i = 0; i < 5; i++) {
+					var img = document.createElement("img");
+					img.setAttribute("src","img/off.png");
+					img.setAttribute("width","100px");
+					df.appendChild(img);
+				}				
+				document.getElementById("con").appendChild(df);
+			}
+		</script>
+	</body>
+</html>

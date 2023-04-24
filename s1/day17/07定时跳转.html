@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			h1{
+				display: inline-block;
+			}
+			h1+h1{
+				color: blue;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		你已经登录，<h1>500</h1>秒之后跳转，也可以点击<h1 onclick="fun()">这里</h1>。
+		<script type="text/javascript">
+		var url = "https://www.baidu.com";
+			setInterval(function(){
+				var time = document.querySelector("h1");
+				if(time.innerHTML=="1"){
+					window.location.href = url;
+				}else{
+					time.innerHTML = time.innerHTML-1;
+				}
+			},1000);
+			function fun(){
+				window.location.href = url;
+			}
+		</script>
+	</body>
+</html>
