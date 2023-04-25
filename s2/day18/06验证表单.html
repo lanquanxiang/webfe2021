@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var users = []; // 已经注册的用户名
+			var spans = [];//所有显示提示的span
+			function init(){
+				//执行所有需要初始化的变量（注意变量的作用域）
+				spans = document.querySelectorAll("span");//初始化
+				document.getElementById("phone").onchange = fun2;
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<!-- 
+		 1. 姓名不能少于6位
+		 2. 手机号必须是1开头的11位数字
+		 3. 注册的时候需要再次检测
+		 4. 姓名不能重复注册		 
+		 -->
+		 <script type="text/javascript">
+		 	function check(){
+				if(fun1()&&fun2()){	//注册账号
+					users.push(document.getElementById("username").value);
+					spans[2].innerHTML = "注册成功!";
+					return false; //应该返回ture，但是为了验证效果暂时不提交表单
+				}else{//数据不合法
+					spans[2].innerHTML = "请根据提示修改内容!";
+					return false; //不提交表单
+				}
+			}
+		 </script>
+		<form action="#" method="get" onsubmit="return check()">
+			姓名： <input type="text" id="username" onchange="fun1()"><span></span><br>
+			手机： <input type="text" id="phone"><span></span><br>
+			<input type="submit" value="注册"/><span></span>
+		</form>
+		<script type="text/javascript">
+			
+			
+			function fun1(){
+				var name = document.getElementById("username").value;				
+				if(name.length<6){
+					spans[0].innerHTML = "姓名不能少于6位";
+					return false;//验证不通过
+				}
+				if(users.indexOf(name)>-1){
+					spans[0].innerHTML = "此用户已经被注册";
+					return false;
+				}
+				spans[0].innerHTML = "恭喜，此用户可用!";
+				return true;
+			}			
+			function fun2(){
+				var phone = document.getElementById("phone").value;
+				if(/^[1-9]\d{10}$/.test(phone)){
+					spans[1].innerHTML = "手机号正确!";
+					return true;
+				}else{
+					spans[1].innerHTML = "手机号码必须是1开头的11位数字!";
+					return false;
+				}
+			}			
+		
+		</script>
+	</body>
+</html>

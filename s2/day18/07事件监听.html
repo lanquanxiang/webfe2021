@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>空白按钮</button>
+		<button>添加监听</button>
+		<button onclick="del()">移除监听</button>
+		<script type="text/javascript">
+			function del(){
+				btns[0].removeEventListener("click",fun,true);
+			}
+		</script>		
+		<script type="text/javascript">
+			var btns = document.querySelectorAll("button");
+			btns[1].onclick = function(){
+				btns[0].addEventListener("click",fun,true);
+			}
+			function fun(){
+				console.log("你点击了按钮!");
+			}
+		</script>
+	</body>
+</html>
