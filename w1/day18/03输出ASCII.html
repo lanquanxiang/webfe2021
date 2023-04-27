@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.body.onkeypress=function(){
+				console.log(event.keyCode);
+			}
+		</script>
+		
+		请输入数字: <input type="text" onkeypress="fun()">
+		<script type="text/javascript">
+			function fun(){
+				if(event.keyCode<48||event.keyCode>57){
+					//alert("只能输入数字");
+					event.preventDefault();//取消该默认操作
+					return;
+				}
+			}
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="fun1()">开始</button>
+		<button onclick="fun2()">停止</button>
+		<hr >
+		<button onclick="fun3()">开始</button>
+		<button onclick="fun4()">停止</button>
+		<div id="con"></div>
+		<script type="text/javascript">
+			function print(){
+				document.getElementById("con").innerHTML +="哈";
+				T = setTimeout(print,10);
+			}
+			function fun1(){
+				print();
+			}
+			function fun2(){
+				clearTimeout(T);
+			}
+			
+			function fun3(){
+				S = setInterval(function(){
+					document.getElementById("con").innerHTML +="哈";
+				},10)
+			}
+			function fun4(){
+				clearInterval(S);
+			}
+		</script>
+	</body>
+</html>

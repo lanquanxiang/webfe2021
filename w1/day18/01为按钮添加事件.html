@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		<button>5</button>
+		<button>6</button>
+		<button>登录</button>
+		<button>8</button>
+		<button>9</button>
+		<button>10</button>
+		<script type="text/javascript">
+			var btns = document.getElementsByTagName("button");
+			for (let i = 0; i < btns.length; i++) {
+				btns[i].onclick = print;
+				btns[i].onmouseover = print;
+				btns[i].onmouseenter = print;
+				btns[i].onmouseout = print;
+			}
+			
+			function print(){
+				console.log("你"+event.type+"了按钮"+ event.target.innerHTML);				
+			}
+		</script>
+	</body>
+</html>
