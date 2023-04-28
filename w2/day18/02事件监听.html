@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<button>给第一个按钮附魔</button>
+		<button>对第一个按钮禁魔</button>
+		
+		<script type="text/javascript">
+			var btns = document.querySelectorAll("button");
+			btns[1].onclick = function(){
+				//为第0个按钮添加事件
+				btns[0].addEventListener("click",fun,true);
+				console.log("第一个按钮可以输出魔法了!");
+			}
+			btns[2].onclick = function(){
+				//为第0个按钮移除事件
+				btns[0].removeEventListener("click",fun,true);
+				console.log("第一个按钮不能输出魔法了!");
+			}	
+			
+			/*********************/
+			function fun(){
+				console.log("这是魔法吧!");
+			}
+		</script>
+	</body>
+</html>

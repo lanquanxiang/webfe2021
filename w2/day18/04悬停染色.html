@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{border: #000000 solid 1px;position: relative;}
+			.d1{width: 250px;height: 250px;}
+			.d2{width: 200px;height: 200px;left: 25px;top: 25px;}
+			.d3{width: 150px;height: 150px;left: 25px;top: 25px;}
+			.d4{width: 100px;height: 100px;left: 25px;top: 25px;}
+			.d5{width: 50px;height: 50px;left: 25px;top: 25px;}
+		</style>
+	</head>
+	<body>
+		<!-- .d1>.d2>.d3>.d4>.d5 -->
+		<div class="d1">
+			<div class="d2">
+				<div class="d3">
+					<div class="d4">
+						<div class="d5"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var divs = document.querySelectorAll("div");
+			for (let i = 0; i < divs.length; i++) {
+				divs[i].onmouseover = function(){
+					/**
+					 * event.target:原始的事件源，eg. d3
+					 * event.currentTarget:可能受到事件冒泡的影响，事件源会发生变化 eg. d3→d2→d1
+					 * this == event.currentTarget
+					 * onmouseover会产生冒泡。onmouseenter不会产生冒泡
+					 */					
+					//event.target.setAttribute("style","background-color: gray;")
+					event.currentTarget.setAttribute("style","background-color: gray;")
+					event.stopPropagation();//手动阻止冒泡
+				}
+				divs[i].onmouseout = function(){
+					//event.target.setAttribute("style","background-color: white;")
+					this.setAttribute("style","background-color: white;")
+				}
+			}
+		</script>
+	</body>
+</html>

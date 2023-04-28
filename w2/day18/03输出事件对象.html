@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		<button>5</button>
+		<button>6</button>
+		<button>7</button>
+		<button>8</button>
+		<button>9</button>
+		<button>0</button>
+		<button>+</button>
+		<button>-</button>
+		<button>/</button>
+		<button>*</button>
+		<script type="text/javascript">
+			var btns = document.getElementsByTagName("button");
+			for (let i = 0; i < btns.length; i++) {
+				btns[i].onclick = fun; //单击
+				btns[i].onmouseover = fun; //鼠标悬停
+				btns[i].onmouseenter = fun; //鼠标进入
+				btns[i].onmouseout = fun;//鼠标离开
+				btns[i].ondblclick = fun;//鼠标双击
+			}
+			/******************************/
+			function fun(){
+				console.log("你"+event.type+"了按钮"+event.target.innerHTML);
+				//console.log(event.target.innerHTML);
+			}
+		</script>
+	</body>
+</html>

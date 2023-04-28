@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button onclick="fun1()">添加文本</button>
+		<button onclick="fun2()">添加图片</button>
+		<div id="con"></div>
+		<script type="text/javascript">
+			function fun1(){
+				var temp = document.createElement("div");
+				temp.innerHTML="文字";
+				temp.setAttribute("style","color: red;")
+				document.getElementById("con").appendChild(temp);
+			}
+			function fun2(){
+				var temp = document.createElement("img");
+				temp.setAttribute("src","img/off.png");
+				temp.setAttribute("width","100px");	
+				document.getElementById("con").appendChild(temp);
+			}
+		</script>
+	</body>
+</html>

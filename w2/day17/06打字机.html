@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="fun1()">开始</button>
+		<button onclick="fun2()">停止</button>
+		<div id="con"></div>
+		<script type="text/javascript">
+			function fun1(){
+				T = setInterval(function(){
+					document.getElementById("con").innerHTML+="泰裤辣";
+				},100);
+			}
+			function fun2(){
+				clearInterval(T);
+			}
+		</script>
+	</body>
+</html>

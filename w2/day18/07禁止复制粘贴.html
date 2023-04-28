@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		请输入答案: <input type="text" onpaste="fun()"> <br>
+		参考答案：124545241524524
+		<script type="text/javascript">
+			document.body.oncopy = function(){
+				alert("老实点，不允许复制!");
+				event.preventDefault();
+			}
+			
+			function fun(){
+				alert("动动手，自己打字！");
+				event.preventDefault();
+			}
+		</script>
+	</body>
+</html>

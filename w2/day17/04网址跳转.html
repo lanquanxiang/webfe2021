@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="fun1()">即将跳转到百度</button>
+		<button onclick="fun2()">是否要跳转到百度</button>
+		<button onclick="fun3()">自定义跳转到URL</button>
+		<script type="text/javascript">
+			function fun1(){
+				alert("即将跳转到百度!");
+				location.href="https://www.baidu.com";
+			}
+			function fun2(){
+				if(confirm("是否要跳转到百度?")){
+					location.href="https://www.baidu.com";
+				}
+			}
+			function fun3(){
+				location.href=prompt("请输入跳转的网址:","https://www.baidu.com");
+			}
+			
+		</script>
+	</body>
+</html>
