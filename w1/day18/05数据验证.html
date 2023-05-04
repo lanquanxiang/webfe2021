@@ -12,10 +12,52 @@
 		 4. 注册成功之后将名字写入数组（用户数组）
 		 5. 用户名不能重复注册。		 
 		 -->
-		<form action="#" method="get">
-			姓名: <input type="text" id="username"><span></span>
-			<br>手机: <input type="text" id="phone"><span></span>
+		 <script type="text/javascript">
+			var users=[];//用来保持所有已经注册的用户名
+		 	function reg(){
+				if(checkName()&&checkTel()){
+					spans[2].innerHTML="注册成功!";
+					var name = document.getElementById("username").value;
+					users.push(name);
+					return false;//应该返回true，为了模拟数据，防止刷新，暂时返回false
+				}else{
+					spans[2].innerHTML="注册失败，请根据提示修改数据!";
+					return false;
+				}
+			}
+		 </script>
+		<form action="#" method="get" onsubmit="return reg()">
+			姓名: <input type="text" id="username" onchange="checkName()"><span></span>
+			<br>手机: <input type="text" id="phone" onchange="checkTel()"><span></span>
 			<br><input type="submit" value="注册"/><span></span>
 		</form>
+		<script type="text/javascript">
+			var spans = document.getElementsByTagName("span");
+			function checkName(){
+				var name = document.getElementById("username").value;
+				if(name.length<6){
+					spans[0].innerHTML = "用户名不能少于6位";
+					return false;
+				}else{
+					if(users.indexOf(name)>-1){
+						spans[0].innerHTML = "用户名已经被注册!";
+						return false;
+					}else{
+						spans[0].innerHTML = "用户名可用!";
+						return true;
+					}					
+				}
+			}
+			function checkTel(){
+				var phone = document.getElementById("phone").value;
+				if(!/^1\d{10}$/.test(phone)){
+					spans[1].innerHTML = "手机号码格式错误!";
+					return false;
+				}else{
+					spans[1].innerHTML = "手机号可用!";
+					return true;
+				}
+			}
+		</script>
 	</body>
 </html>
