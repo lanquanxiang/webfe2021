@@ -30,16 +30,23 @@
 				var res="";
 				for(var i=money.length-1,j=units.length-1;i>=0;i--,j--){
 					res=caps[money[i]]+units[j]+res;
-					
 				}
 				document.getElementById("res").innerHTML=res;
-				
+				var res2="";
+				for(var i=part1.length-1,j=0;i>=0;i--){
+					res2=part1[i]+res2;
+					if(++j%3==0&&i!=0){
+						res2=","+res2;
+					}
+				}
+				document.getElementById("res2").innerHTML=res2+"."+part2;
 			}
 		</script>
 	</head>
 	<body>
 		输入数字：<input type="text" id="num" />
 		<button type="button" onclick="fun()">转换</button><br>
-		大写金额:<div id="res"></div>
+		大写金额:<span id="res"></span><br>
+		小写金额:<span id="res2"></span>
 	</body>
 </html>
