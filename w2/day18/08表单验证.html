@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 
+		 1. 用户名不能少于6位
+		 2. 手机号必须是1开头的11位数字
+		 3. 如果上述条件不符合，需要进行提示
+		 4. 点击注册之后，如果不符合1和2，取消注册，并提示
+		 5. 注册成功之后，用户名写入数组中
+		 6. 名字不能重复注册，重复注册不成功，并提示
+		 -->
+		 <form action="#" method="get" onsubmit="return checkReg()">
+		 	姓名： <input type="text" id="name" onchange="checkName()"><span></span><br>
+			手机： <input type="text" id="tel" onchange="checkTel()"><span></span><br>
+		 	<input type="submit" value="注册"/><span></span>
+		 </form>
+		 
+		 <script type="text/javascript">
+			var spans = document.getElementsByTagName("span");
+		 	function checkName(){
+				var name = document.getElementById("name").value;
+				if(name.length<6){
+					spans[0].innerHTML = "用户名不能少于6位!";
+					return false;
+				}
+				if(users.indexOf(name)!=-1){
+					spans[0].innerHTML = "用户名已经被注册!";
+					return false;
+				}
+				spans[0].innerHTML = "用户名可用!";
+				return true;
+			}
+			function checkTel(){
+				var tel = document.getElementById("tel").value;
+				if(!/^1\d{10}$/.test(tel)){
+					spans[1].innerHTML = "手机号码格式错误!";
+					return false;
+				}
+				spans[1].innerHTML = "手机号码可用!";
+				return true;
+			}
+			
+			var users = [];//模拟所有已经注册的用户列表
+			function checkReg(){
+				if(checkName() && checkTel()){
+					var name = document.getElementById("name").value;
+					users.push(name);
+					spans[2].innerHTML = "注册成功!";
+					spans[0].innerHTML ="";
+					spans[1].innerHTML ="";
+					document.getElementById("name").value="";
+					document.getElementById("tel").value="";
+					return false;//应该是true，写成false是为了保留users中的数据
+				}else{
+					spans[2].innerHTML = "注册失败，请根据提示修改内容!";
+					return false;
+				}
+			}
+		 </script>
+	</body>
+</html>
