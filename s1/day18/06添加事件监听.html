@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function speak(){
+				console.log("泰裤辣");
+			}
+		</script>
+	</head>
+	<body>
+		<button>小鬼</button>
+		<button>开麦</button>
+		<button>闭麦</button>
+		
+		<script type="text/javascript">
+			document.getElementsByTagName("button")[1].onclick=function(){
+				document.getElementsByTagName("button")[0].addEventListener("click",speak,true);
+				console.log("开麦讲话……")
+			}
+			document.getElementsByTagName("button")[2].onclick=function(){
+				document.getElementsByTagName("button")[0].removeEventListener("click",speak,true);
+				console.log("闭麦……")
+			}
+		</script>
+		
+	</body>
+</html>

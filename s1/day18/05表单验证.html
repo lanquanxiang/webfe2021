@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var spans=[];//表示所有提示用语的span
+			var users=["zhangsan"];//表示所有注册用户
+			function init(){
+				spans = document.getElementsByTagName("span");
+			}
+		
+			function checkName(){
+				var name = document.getElementById("name").value;
+				if(name.length<6){
+					spans[0].innerHTML="用户名长度不能少于6位!";
+					return false;
+				}
+				if(users.indexOf(name)!=-1){
+					spans[0].innerHTML="用户名已经被注册!";
+					return false;
+				}
+				spans[0].innerHTML="用户名可用!";
+				return true;
+			}
+			function checkTel(){
+				var tel = document.getElementById("tel").value;
+				if(/^1\d{10}$/.test(tel)==false){
+					spans[1].innerHTML="手机号码格式错误!";
+					return false;
+				}
+				spans[1].innerHTML="手机号码可用!";
+				return true;
+			}
+			function reg(){
+				if(checkName() && checkTel()){
+					spans[2].innerHTML="注册成功!";
+					var name = document.getElementById("name").value;
+					users.push(name);
+					
+					document.getElementById("name").value="";
+					document.getElementById("tel").value="";
+					spans[0].innerHTML="";
+					spans[1].innerHTML="";
+					return false;//应该返回true，为了防止数据丢失
+				}else{
+					spans[2].innerHTML="根据提示修改数据!";
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<!-- 
+		 1. 用户名不能少于6位
+		 2. 手机号码必须是1开头的，且是11位数字
+		 3. 用户名不能重复注册
+		 4. 用户名和手机号不正确就在后面提示
+		 5. 点击注册的时候，需要检验数据
+		 -->
+		 <form action="#" method="post" onsubmit="return reg()">
+		 	姓名：<input type="text" id="name" onchange="checkName()"><span></span> <br>
+			手机：<input type="text" id="tel" onchange="checkTel()"><span></span> <br>
+ 		 	<input type="submit" value="注册"/><span></span>
+		 </form>
+	</body>
+</html>

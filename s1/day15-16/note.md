@@ -29,7 +29,7 @@ ele.innerHTML/innerText 纯文本  ele.innerHTML/innerText="新的值"
 2. 是否为数字  isNaN(X)==false 是数字
 3. 是否一致 X==Y
 4. 长度不能少于6位  X.length<6
-5. 复杂验证（手机号码、邮箱、混合密码）正则表达式
+5. 复杂验证（手机号码、邮箱、混合密码）正则表达式 /\d{1,}/.test()&&/[a-z]{1,}/.test()
 # 7. 正则表达式
 1. 初始化 
 > var a = new Reg();

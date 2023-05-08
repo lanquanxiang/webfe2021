@@ -6,10 +6,10 @@
 	</head>
 	<body>
 		<button>1</button>
-		<button>a</button>
-		<button>b</button>
-		<button>c</button>
-		<button>2</button>
+		<button>+</button>
+		<button>-</button>
+		<button>*</button>
+		<button>/</button>
 		<button>3</button>
 		<button>4</button>
 		<button>5</button>
@@ -22,14 +22,15 @@
 			var btns = document.getElementsByTagName("button");
 			for (let i = 0; i < btns.length; i++) {
 				btns[i].onclick = fun;
-				btns[i].onmouseover = fun;
-				btns[i].onmouseenter = fun;
-				btns[i].onmouseout = fun;
-				btns[i].ondblclick = fun;				
+				// btns[i].onmouseover = fun;
+				// btns[i].onmouseenter = fun;
+				// btns[i].onmouseout = fun;
+				// btns[i].ondblclick = fun;				
 			}
 			
 			function fun(){
-				console.log("你"+event.type+"了按钮"+event.target.innerHTML);
+				//console.log("你"+event.type+"了按钮"+event.target.innerHTML);
+				console.log(event.target.innerHTML);
 			}
 		</script>
 	</body>

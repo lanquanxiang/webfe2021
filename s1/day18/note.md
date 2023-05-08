@@ -11,6 +11,11 @@
 ```
 document.querySelector("button").onclick = fun;
 ```
+3. 事件监听，获得元素，然后给元素**添加事件监听**，添加事件名称、响应程序、是否捕获型
+```
+document.querySelector("button").addEventListener("click",fun,true);
+document.querySelector("button").removeEventListener("click",fun,true);
+```
 # 3. 事件对象event（window.event）
 1. event.type 事件名称
 2. event.target 触发事件的元素
@@ -33,10 +38,17 @@ document.querySelector("button").onclick = fun;
 3. onkeypress	键盘按下并释放
 ## 2. 常用属性
 ```
-event.keyCode  //键入的ASCII码
+event.keyCode  //键入的ASCII码  97
+event.key //键入的字符   a
 ```
 # 7. 编辑事件
 ```
 oncopy
 onpaste
 ```
+# 8. 表单事件【重要:对数据进行验证】
+1. onsubmit="return fun()"	表单提交 form标签中//需要返回值，false阻止表单提交【重点】
+2. onreset	表单重置
+3. onchange	内容被改变并失去焦点 //input输入标签中，eg. 判断用户名是否被注册
+4. onblur	失去焦点
+5. onfocus	获得焦点
