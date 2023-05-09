@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function fun(){
+				var index = sc_shcool.selectedIndex;
+				//sc_major.length = 0; //将下拉列表的长度置为0
+				//sc_major.options.length = 0; //将选项长度置为0
+				sc_major.innerHTML=""; //清空下拉列表标签的文本（选项在文本中）
+				for (let i = 0; i < schools[index].major.length; i++) {
+					sc_major.options[i] = new Option(schools[index].major[i]);
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择： <select id="school" onchange="fun()"></select>学院
+		<select id="major"></select>专业
+		
+		<script type="text/javascript">
+			function init(){
+				sc_shcool = document.getElementById("school");
+				sc_major = document.getElementById("major");
+				
+				
+				//1. 创建对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("get","data.json",true);//true异步请求
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				xhr.onreadystatechange=function(){
+					//readystate 0/1/2/3/4请求已完成
+					//xhr.status服务器 404 
+					if(xhr.readyState==4 && xhr.status==200){
+						schools = JSON.parse(xhr.responseText);
+						for (let i = 0; i < schools.length; i++) {
+							sc_shcool.options[i] = new Option(schools[i].name)
+						}
+						for (let i = 0; i < schools[0].major.length; i++) {
+							sc_major.options[i] = new Option(schools[0].major[i]);
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body onload="init()">
+		姓名：<input type="text" id="name"> <br>
+		年龄：<input type="text" id="age">
+		<button type="button" onclick="next()">下一个</button>
+		<script type="text/javascript">
+			function init(){
+				//1. 创建对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("get","stu.xml",false);//fasle同步请求
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				var dom = xhr.responseXML;//得到的是文档树
+				stus = dom.querySelectorAll("stu");//得到所有的学生（数组）
+				
+				document.getElementById("name").value = stus[0].getAttribute("name");
+				document.getElementById("age").value = stus[0].getAttribute("age");	
+			}
+			var cur = 0;
+			var stus=[];
+			function next(){
+				cur = (cur+1)%stus.length;
+				document.getElementById("name").value = stus[cur].getAttribute("name");
+				document.getElementById("age").value = stus[cur].getAttribute("age");	
+			}
+		</script>
+	</body>
+</html>

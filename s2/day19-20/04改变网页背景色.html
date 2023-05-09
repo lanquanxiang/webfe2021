@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function init(){
+				//1. 创建对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("get","colors.xml",false);//fasle同步请求
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				var dom = xhr.responseXML;//得到的是文档树
+				colors = dom.querySelectorAll("color");//全局变量
+				var sel = document.getElementById("sel");//得到下拉列表
+				for (let i = 0; i < colors.length; i++) {
+					sel.options[i] = new Option(colors[i].querySelector("name").innerHTML);
+				}
+				var c = colors[0].querySelector("rgb").innerHTML;//默认颜色
+				document.body.setAttribute("style","background-color: "+c+";")
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择颜色: <select id="sel" onchange="changeColor()"></select>
+		
+		<script type="text/javascript">
+			function changeColor(){
+				var index = document.getElementById("sel").selectedIndex;//得到下拉列表选择项的索引
+				var c = colors[index].querySelector("rgb").innerHTML;//默认颜色
+				document.body.setAttribute("style","background-color: "+c+";")
+			}
+		</script>
+	</body>
+</html>
