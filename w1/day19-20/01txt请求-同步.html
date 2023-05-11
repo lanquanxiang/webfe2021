@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		服务器消息：<span></span><br>
+		<button type="button" onclick="fun()">获取消息</button>
+		
+		<script type="text/javascript">
+			function fun(){
+				//1. 初始化对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("get","data.txt",false);//同步请求
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				var txt = xhr.responseText;
+				document.querySelector("span").innerHTML=txt;
+			}
+		</script>
+	</body>
+</html>

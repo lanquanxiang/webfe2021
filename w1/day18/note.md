@@ -13,6 +13,13 @@
 document.querySelector("button").onclick = fun;
 
 ```
+3. 为元素添加事件监听
+```
+<button>按钮</button>
+document.querySelector("button").addEventListener("click",fun,是否使用捕获型);
+document.querySelector("button").removeEventListener("click",fun,是否使用捕获型);
+
+```
 # 3. 事件对象event
 1. 元素 window.event.target
 2. 事件名称 window.event.type
@@ -38,3 +45,7 @@ document.querySelector("button").onclick = fun;
 3. onchange	内容被改变并失去焦点【掌握】
 4. onblur	失去焦点
 5. onfocus	获得焦点
+## 5. 加载事件（网页加载完毕之后再执行）
+onload
+> 自动运行脚本
+> 数据初始化

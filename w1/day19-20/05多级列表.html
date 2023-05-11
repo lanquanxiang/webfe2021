@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var schools = [];
+			function init(){
+				//1. 初始化对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("get","data.json",true);//异步请求
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState==4 && xhr.status==200){
+						var txt = xhr.responseText;
+						//需要将文本转换为JSON对象
+						schools = JSON.parse(txt);
+						
+						var sc_school = document.getElementById("school");
+						var sc_major = document.getElementById("major");
+						for (let i = 0; i < schools.length; i++) {
+							sc_school.options[i] = new Option(schools[i].name);
+						}
+						for (let i = 0; i < schools[0].major.length; i++) {
+							sc_major.options[i]  = new Option(schools[0].major[i]);
+						}
+					}
+				}
+			}
+			function fun(){
+				var sc_school = document.getElementById("school");
+				var sc_major = document.getElementById("major");
+				var index = sc_school.selectedIndex;
+				/*清空原来的专业列表*/
+				//sc_major.length = 0; 
+				//sc_major.options.length = 0; // 将option数组长度置为0
+				sc_major.innerHTML = "";   //直接删除了所有options
+				for (let i = 0; i < schools[index].major.length; i++) {
+					sc_major.options[i]  = new Option(schools[index].major[i]);
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择： <select id="school"  onchange="fun()"></select>学院
+		<select id="major"></select>专业
+	</body>
+</html>

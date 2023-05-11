@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var colors = [];
+			function init(){
+				//1. 初始化对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("get","color.xml",false);//同步请求
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				var xmldoc = xhr.responseXML;
+				//colors = xmldoc.getElementsByTagName("color");
+				colors = xmldoc.querySelectorAll("color");
+				
+				var sc = document.getElementById("sc");
+				for (let i = 0; i < colors.length; i++) {
+					sc.options[i] = new Option(colors[i].querySelector("name").innerHTML);
+				}
+				var color = colors[0].querySelector("rgb").innerHTML;
+				document.body.setAttribute("style","background-color:"+color+";")
+			}
+		</script>
+		
+		
+	</head>
+	<body onload="init()">
+		请选择网页背景色: <select id="sc" onchange="fun()"></select>
+		<script type="text/javascript">
+			function fun(){
+				var sc = document.getElementById("sc");
+				var index = sc.selectedIndex; //红色0 
+				var color = colors[index].querySelector("rgb").innerHTML;
+				document.body.setAttribute("style","background-color:"+color+";")
+			}
+		</script>
+	</body>
+</html>
