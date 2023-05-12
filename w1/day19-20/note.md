@@ -45,7 +45,7 @@ xhr.onreadystatechange = function(){
 2. 格式校验
 [JSON格式校验](https://www.bejson.com/)
 3. 数据读取
-> 以文本的方式读取 
+> 以文本的方式读取  jsonstr=xhr.responseText;
 > 将文本转为JSON对象
 ```
 obj = JSON.parse(jsonstr);

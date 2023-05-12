@@ -40,3 +40,9 @@ document.querySelector("button").removeEventListener("click",fun,true);
 ## 3. 编辑事件
 1. oncopy
 2. onpaste
+3. onsubmit
+4. onchange
+## 4. 页面事件
+onload 页面内容加载完成之后触发
+> 初始化数据
+> 页面加载完毕之后自动运行的脚本
