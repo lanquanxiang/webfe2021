@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var schools = [];
+			function init(){
+				//1. 创建对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("get","school.json",true);//异步
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				
+				xhr.onreadystatechange=function(){
+					//readystate:0 1 2 3 4
+					if(xhr.readyState==4 && xhr.status==200){
+						var txt = xhr.responseText; //接收数据
+						schools = JSON.parse(txt);
+						
+						var se_school = document.getElementById("school");
+						var se_major = document.getElementById("major");
+						for (let i = 0; i < schools.length; i++) {
+							se_school.options[i] = new Option(schools[i].name);
+						}
+						
+						for (let i = 0; i < schools[0].majors.length; i++) {
+							se_major.options[i] = new Option(schools[0].majors[i]);
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择：<select  id="school" onchange="fun()"></select>学院
+		<select  id="major"></select>专业
+		
+		<script type="text/javascript">
+			function fun(){
+				var se_school = document.getElementById("school");
+				var se_major = document.getElementById("major");
+				var index = se_school.selectedIndex;
+				
+				//se_major.length = 0;
+				//se_major.options.length = 0; // 清空下拉选项列表
+				se_major.innerHTML = 0;  //清空select中的所有子标签option			
+				
+				for (let i = 0; i < schools[index].majors.length; i++) {
+					se_major.options[i] = new Option(schools[index].majors[i]);
+				}
+				
+			}
+		</script>
+	</body>
+</html>

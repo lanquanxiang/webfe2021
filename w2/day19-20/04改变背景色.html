@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var colors = [];
+			function init(){
+				//1. 创建对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("get","color.xml",false);
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				var xmldoc = xhr.responseXML; //接收数据,得到的是文档树
+				colors = xmldoc.querySelectorAll("color");
+				
+				var se = document.getElementById("se");//得到下拉列表
+				for (let i = 0; i < colors.length; i++) {
+					se.options[i] = new Option(colors[i].querySelector("name").innerHTML);
+				}
+				
+				var color = colors[0].querySelector("rgb").innerHTML;
+				document.body.setAttribute("style","background-color: "+color+";")
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		请选择网页背景: <select id="se" onchange="fun()"></select>
+		<script type="text/javascript">
+			function fun(){
+				var se = document.getElementById("se");//得到下拉列表
+				var index = se.selectedIndex; // 得到用户所选择的选项索引
+				var color = colors[index].querySelector("rgb").innerHTML;
+				document.body.setAttribute("style","background-color: "+color+";")
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var stus = []; //学生列表
+			function init(){
+				//1. 创建对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("get","stu.xml",false);
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				var xmldoc = xhr.responseXML; //接收数据,得到的是文档树
+				stus = xmldoc.getElementsByTagName("stu");
+				
+				document.getElementById("sno").value = stus[0].getAttribute("sno");
+				document.getElementById("sname").value = stus[0].getAttribute("sname");
+				
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		学号： <input type="text" id="sno"> <br>
+		姓名： <input type="text" id="sname"> 
+		<button type="button" onclick="next()">下一个</button>
+		
+		<script type="text/javascript">
+			var index = 0;
+			function next(){
+				index = (index+1)%stus.length;
+				document.getElementById("sno").value = stus[index].getAttribute("sno");
+				document.getElementById("sname").value = stus[index].getAttribute("sname");
+			}
+		</script>
+	</body>
+</html>
