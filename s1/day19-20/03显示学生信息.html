@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var stus=[]; //所有学生
+			var index = 0;//默认第一个
+			function init(){
+				//1. 创建对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("GET","stu.xml",false);//同步
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				var xmldom = xhr.responseXML;
+				stus = xmldom.getElementsByTagName("stu");
+				
+				document.getElementById("sno").value = stus[0].getAttribute("sno");
+				document.getElementById("sname").value = stus[0].getAttribute("sname");
+				
+				document.querySelector("button").onclick = function(){
+					index = (index+1)%stus.length;
+					document.getElementById("sno").value = stus[index].getAttribute("sno");
+					document.getElementById("sname").value = stus[index].getAttribute("sname");
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		学号：<input type="text" id="sno"><br>
+		姓名：<input type="text" id="sname">
+		<button type="button">下一个</button>
+	</body>
+</html>

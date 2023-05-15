@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body onload="init()">
+		请选择： <select></select>学院<select></select>专业
+		<script type="text/javascript">
+			var schools = [];
+			var ses = document.querySelectorAll("select");
+			function init(){
+				//1. 创建对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("GET","school.json",true);//异步
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				xhr.onreadystatechange = function(){
+					//0 1 2 3 4(请求已完成)
+					if(xhr.readyState==4 && xhr.status==200){
+						var jsonstr = xhr.responseText;
+						schools = JSON.parse(jsonstr);
+						
+						for (let i = 0; i < schools.length; i++) {
+							ses[0].options[i] = new Option(schools[i].name);
+						}
+						
+						for (let i = 0; i < schools[0].majors.length; i++) {
+							ses[1].options[i] = new Option(schools[0].majors[i]);
+						}
+						
+					}
+				}
+				ses[0].onchange=function(){
+					var index = ses[0].selectedIndex;
+					ses[1].length = 0;//清空第二个下拉列表
+					//ses[1].options.length = 0;
+					//ses[1].innerHTML = "";
+					for (let i = 0; i < schools[index].majors.length; i++) {
+						ses[1].options[i] = new Option(schools[index].majors[i]);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

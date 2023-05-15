@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		服务器data.txt的数据：<span></span> <br>
+		<button type="button" onclick="fun()">请求数据</button>
+		<script type="text/javascript">
+			function fun(){
+				//1. 创建对象
+				var xhr = new XMLHttpRequest();
+				//2. 创建请求
+				xhr.open("GET","data.txt",true);//异步
+				//3. 发送请求
+				xhr.send();
+				//4. 处理响应
+				xhr.onreadystatechange = function(){
+					//0 1 2 3 4(请求已完成)
+					if(xhr.readyState==4 && xhr.status==200){
+						var txt = xhr.responseText;
+						document.querySelector("span").innerHTML=txt;
+					}
+				}				
+			}
+		</script>
+	</body>
+</html>
