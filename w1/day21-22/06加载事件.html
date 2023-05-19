@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.7.0.min.js"></script>
+	</head>
+	<body>
+		<img src="img/onnnnn.png" width="50px">
+		<script>
+			window.onload = function(){
+				console.log(1);
+			}
+			/*只能输出2，上面函数会被覆盖*/
+			window.onload = function(){
+				/*标签和资源同时加载完毕之后再执行*/
+				console.log(2);
+			}
+			/*ready可以多次，不会被覆盖*/
+			$(document).ready(function(){
+				console.log(3);
+			})
+			$().ready(function(){
+				console.log(4);
+			})
+			$(function(){
+				console.log(5);
+			})
+		</script>
+	</body>
+</html>

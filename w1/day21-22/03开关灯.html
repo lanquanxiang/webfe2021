@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.red{
+				color: red;
+				text-decoration: underline;
+			}
+		</style>
+		<script src="js/jquery-3.7.0.min.js"></script>
+		<script type="text/javascript">
+			var flag=false;
+			function theshy(){
+				var img=$("#light")
+				var text=$("#text")
+				if(flag==false){
+					img.attr("src","img/on.png")
+					text.html("灯亮了!")
+					flag=true
+					//text.css("color","red");
+				}
+				else{
+					img.attr("src","img/off.png")
+					text.html("灯灭了!")
+					flag=false
+					//text.css("color","black");
+					text.removeClass("red");
+				}
+			}			
+		</script>
+	</head>
+	<body>
+		<div onclick="theshy()" style="text-align: center;">
+			<img src="img/off.png" id="light" width="200px">
+			<h1 id="text">灯灭了！</h1>
+		</div>
+	</body>
+</html>

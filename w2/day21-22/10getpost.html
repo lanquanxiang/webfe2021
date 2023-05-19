@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		服务器数据信息:<span></span> <br>
+		<button type="button" onclick="fun()">请求数据</button>
+		
+		<script src="js/jquery-3.7.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function fun(){
+				/*
+				$.get("data.txt",function(data){
+					$("span").html(data);
+				})
+				*/
+			   $.ajax({
+				   url:"data.txt",
+				   type:"get",
+				   data:{}, //发送给服务器的数据
+				   async:true,
+				   dataType:"text",
+				   success:function(data){
+					   $("span").html(data);
+				   },
+				   error:function(data){
+					   $("span").html("请求失败");
+				   }
+			   })
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.7.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").eq(0).bind("click",function(){
+					console.log("按钮被点击");
+				})
+				
+				$("button").eq(1).one("click",function(){
+					console.log("按钮不能点击了");
+					$("button").eq(0).unbind("click");
+				})
+				
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<button type="button">可点击的按钮</button>
+		<button type="button">移除第一个按钮的事件（一次性）</button>
+	</body>
+</html>

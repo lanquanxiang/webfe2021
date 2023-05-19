@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<button>按钮失效（一次性）</button>
+		
+		<script src="js/jquery-3.7.0.min.js"></script>
+		<script>
+			/**
+			 * 1. 为按钮绑定事件
+			 * 2. 为失效按钮添加一次性事件
+			 * 3. 当点击了失效按钮之后，接触按钮的事件绑定
+			 */
+			$("button").eq(0).bind("click",function(){
+				console.log("按钮被点击了!")
+			})
+			$("button").eq(1).one("click",function(){
+				console.log("按钮失效!");
+				$("button").eq(0).unbind("click");
+			})
+		</script>
+	</body>
+</html>
