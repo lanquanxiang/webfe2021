@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.7.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("input").click(function(){
+					console.log("你点击了文本框");
+				}).mouseout(function(){
+					console.log("你离开了文本框");
+				}).mouseover(function(){
+					console.log("你悬停了文本框");
+				}).focus(function(){
+					console.log("文本框获得了焦点");
+				}).keypress(function(){
+					console.log("你输入了内容");
+				}).blur(function(){
+					console.log("你点击了其他地方");
+				}).change(function(){
+					console.log("文本框值被改变了，并失去了焦点");
+				})				
+			})
+		</script>
+	</head>
+	<body>
+		文本框： <input type="text">
+	</body>
+</html>

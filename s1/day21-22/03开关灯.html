@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.on{
+				color: red;
+				text-shadow: 5px 5px 5px #FF0000;				
+			}
+		</style>
+		<script src="js/jquery-3.7.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function fun(){
+				var img=$("div>img");
+				var text=$("div>h1");
+				if(text.html()=="灯灭了"){
+					img.attr("src","img/on.png");
+					text.html("灯亮了");
+					//text.attr("style","color:red;")
+					//text.css("color","red");
+					text.addClass("on");
+				}else{
+					img.attr("src","img/off.png");
+					text.html("灯灭了");
+					//text.attr("style","color:black;")
+					text.removeClass("on");
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div style="text-align: center;" onclick="fun()">
+			<img src="img/off.png" width="200px">
+			<h1 >灯灭了</h1>
+		</div>
+	</body>
+</html>

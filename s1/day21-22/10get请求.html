@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		服务器数据： <span></span> <br>
+		<button type="button">请求数据</button>
+		
+		<script src="js/jquery-3.7.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			$("button").click(function(){
+				/*
+				$.get("data.txt",function(data){
+					$("span").html(data);
+				})
+				*/
+			   
+			   $.ajax({
+				  url:"data.txt",
+				  type:"get",
+				  data:{},
+				  async:true,
+				  dataType:"textxxxxxxx",
+				  success:function(data){
+					  $("span").html(data);
+				  },
+				  error:function(){
+					  alert("请求失败")
+				  }	
+			   })
+			   
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		请选择你要上传的文件: <br>
+		<input type="file">
+		<button>增加</button>
+		<div id="con"></div>
+		
+		<script src="js/jquery-3.7.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("button:eq(0)").bind("click",function(){
+				var temp=$("<div></div>")
+				var file=$("<input type='file'>")
+				var btn=$("<button onclick='del()'>删除</button>")
+				temp.append(file)
+				temp.append(btn)
+				$("#con").append(temp)
+			})
+			function del(){
+				$(event.target.parentNode).remove();
+			}
+		</script>
+	</body>
+</html>
