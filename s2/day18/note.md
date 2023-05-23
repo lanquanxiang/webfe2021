@@ -19,6 +19,7 @@ document.querySelector("button").onclick = fun;
 1. 获得元素
 2. 给元素附加被监听的【事件名称】以及对应的处理程序
 document.querySelector("button").addEventListener("click",fun,true);
+document.querySelector("button").removeEventListener("click",fun,true);
 ```
 ## 3. 事件对象
 1. window.event 事件
