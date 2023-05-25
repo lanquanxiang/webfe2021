@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.takeon{
+				color: red;
+				text-decoration: underline;
+				text-shadow: 5px 5px 10px red;
+			}
+		</style>
+		<script src="js/jquery-3.7.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var flag=false;
+			function fun(){
+				var img=$("#img");
+				var text=$("#text");
+				if(flag==false){
+					img.attr("src","img/on.png");
+					text.html("灯开了");
+					//text.css("color","red")
+					text.addClass("takeon")
+					flag=true;
+				}
+				else{
+					img.attr("src","img/off.png");
+					text.html("灯关了");
+					//text.css("color","black")
+					text.removeClass("takeon")
+					flag=false;
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div onclick="fun()">
+			<img src="img/off.png" width="200px" id="img">
+			<h1 id="text">点击开关灯</h1>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.7.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").eq(0).bind("click",function(){
+					console.log("你点了按钮")
+				})
+				
+				$("button").eq(1).one("click",function(){
+					console.log("解除了第一个按钮的绑定，这句话你只能看见一次")
+					$("button").eq(0).unbind("click")
+				})				
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<button>可点击的按钮</button>
+		<button>一次性移除</button>
+	</body>
+</html>

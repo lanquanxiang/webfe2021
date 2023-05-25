@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.7.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("input").eq(1).click(function(){
+					if($("input").eq(1).is(":checked")==true){
+						$("input").eq(0).prop("checked",true);
+					}
+				})
+				$("input").eq(0).change(function(){
+					if($("input").eq(0).is(":checked")==false){
+						$("input").eq(1).prop("checked",false);
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<!-- 
+		 1. 如果自动登录被勾选，保存密码也会被勾选
+		 2. 如果保存密码被取消，自动登录也会被取消
+		 -->
+		<input type="checkbox">保存密码
+		<input type="checkbox">自动登录
+	</body>
+</html>

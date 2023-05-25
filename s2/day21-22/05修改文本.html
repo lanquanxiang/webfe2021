@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.7.0.js"></script>
+	</head>
+	<body>
+		<div>1</div>
+		<div id="d1">2</div>
+		<div class="d2">3</div>
+		<div>4</div>
+		
+		<script type="text/javascript">
+			$("div").eq(0).html("<b>111</b>");
+			$("#d1").text("<b>222</b>")
+			$(".d2").html("333")
+			$(".d2+div").html("444")
+			
+			$("div").html("666")
+		</script>
+		
+	</body>
+</html>

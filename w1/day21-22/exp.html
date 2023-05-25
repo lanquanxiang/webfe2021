@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.hide{
+				display: none;
+			}
+		</style>
+		<script src="js/jquery-3.7.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		var paints=[];
+			$(function(){
+				$.ajax({
+					url:"data.json",
+					type:"get",
+					async:false,
+					dataType:"json",
+					success:function(data){
+						paints=data;
+						// console.log(paints);
+						display();
+					}
+				})
+			})
+			function display(){
+				for(let i=0;i<paints.length;i++){
+					var tr=$("<tr></tr>");
+					tr.append(newTd(paints[i].id));
+					tr.append(newTd(paints[i].name));
+					tr.append(newTd(paints[i].dynasty));
+					tr.append(newTd(paints[i].author));
+					tr.append($("<button class='btn-edit'>编辑</button>"))
+					tr.append($("<button class='btn-del'>删除</button>"))
+					tr.append($("<button class='btn-save'>保存</button>"))
+					tr.append($("<button class='btn-cancal'>取消</button>"))
+					$(".data").append(tr);
+				}
+				$("input").attr("disabled","");
+				$(".btn-save").addClass("hide");
+				$(".btn-cancal").addClass("hide");
+				
+			}
+			function newTd(v){
+				var td=$("<td></td>");
+				var input=$("<input type='text' size='8'/>" );
+				if(v){
+					input.val(v);
+				}
+				td.append(input);
+				return td;				
+			}
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>序号</th>
+				<th>名称</th>
+				<th>朝代</th>
+				<th>作者</th>
+				<th>操作</th>
+			</tr>
+			<tbody class="data"></tbody>
+			<tr align="center">
+				<td colspan="5"><button onclick="add()" class="btn-add">增加</button></td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			function add(){
+				var tr=$("<tr></tr>");
+				tr.append(newTd());
+				tr.append(newTd());
+				tr.append(newTd());
+				tr.append(newTd());
+				tr.append($("<button class='btn-save'>保存</button>"))
+				tr.append($("<button class='btn-cancal'>取消</button>"))
+				$(".data").append(tr);
+				$(".btn-add").addClass("hide");
+				
+				$(".btn-cancal").bind("click",cancal);
+			}
+			function cancal(){
+				if(confirm("是否要取消编辑?")){
+					$(".data").html("");
+					display();
+					$(".btn-add").removeClass("hide");
+					//window.reload();
+				}
+			}
+		</script>
+	</body>
+</html>
