@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.7.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.hide{
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+		var huas=[]
+			$(function(){
+				$.ajax({
+					url:"data.json",
+					type:"get",
+					async:false,
+					dataType:"json",
+					success:function(data){
+						huas=data;	
+						//console.log(huas)
+						display()
+					}
+				})
+			})
+			function createtd(v){
+				var td=$("<td></td>");
+				var i=$("<input type='text' size='8'/>");
+				if(v){
+					i.val(v);
+				}
+				td.append(i);
+				return td;
+			}
+			function display(){
+				for (let i = 0; i < huas.length; i++) {
+					var tr=$("<tr></tr>");
+					tr.append(createtd(huas[i].id));
+					tr.append(createtd(huas[i].name));
+					tr.append(createtd(huas[i].dynasty));
+					tr.append(createtd(huas[i].author));
+					var td=$("<td></td>");
+					td.append($("<button class='btn-edit'>编辑</button>"));
+					td.append($("<button class='btn-del'>删除</button>"));
+					td.append($("<button class='btn-save'>保存</button>"));
+					td.append($("<button class='btn-cancel'>取消</button>"));
+					tr.append(td);
+					$("#con").append(tr)
+					$(".btn-save").addClass("hide");
+					$(".btn-cancel").addClass("hide");
+				}
+				$("input").attr("disabled","disabled");
+				
+			}
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>序号</th>
+				<th>名称</th>
+				<th>朝代</th>
+				<th>作者</th>
+				<th>操作</th>
+			</tr>
+			<tbody id="con"></tbody>
+			<tr>
+				<td colspan="5" align="center"><button class='btn-add' onclick="add()">增加</button></td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			function add(){
+				var tr=$("<tr></tr>");
+				tr.append(createtd());
+				tr.append(createtd());
+				tr.append(createtd());
+				tr.append(createtd());
+				var td=$("<td></td>");
+				td.append($("<button class='btn-save'>保存</button>"));
+				td.append($("<button class='btn-cancel'>取消</button>"));
+				tr.append(td);
+				$("#con").append(tr)
+				$(".btn-add").addClass("hide");
+				$(".btn-cancel").bind("click",cancel);
+				$(".btn-save").bind("click",save);
+			}
+			function cancel(){
+				if(confirm("是否要取消编辑？")){
+					$("#con").html("");
+					display()
+					$(".btn-add").removeClass("hide");
+				}
+			}
+			function save(){
+				var index=$(".btn-save").index(event.target);
+				console.log(index);
+				/**
+				 * 根据索引，找到第index行的四个单元格，判断单元格是否有数据
+				 * 然后再存入数组中
+				 */
+				
+			}
+		</script>
+	</body>
+</html>
